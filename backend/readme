@@ -1,0 +1,70 @@
+
+backend/
+├── .env
+├── .gitignore
+├── package.json
+├── server.js                   # server entry point
+
+├── config/
+│   ├── db.js                   # MongoDB connection
+│   ├── logger.js               # winston logger config
+│   ├── cloudinary.js           # movie poster uploads
+│   └── jwt.js                  # jwt configs
+
+├── src/
+│   ├── models/                 # Mongoose models
+│   │   ├── User.js
+│   │   ├── Movie.js
+│   │   ├── Showtime.js
+│   │   ├── Booking.js
+│   │   └── Payment.js
+
+│   ├── controllers/            # route logic
+│   │   ├── authController.js
+│   │   ├── movieController.js
+│   │   ├── showtimeController.js
+│   │   ├── bookingController.js
+│   │   └── paymentController.js
+
+│   ├── routes/                 # API routes
+│   │   ├── authRoutes.js
+│   │   ├── movieRoutes.js
+│   │   ├── showtimeRoutes.js
+│   │   ├── bookingRoutes.js
+│   │   └── paymentRoutes.js
+
+│   ├── middleware/
+│   │   ├── authMiddleware.js        # verify jwt
+│   │   ├── adminMiddleware.js       # check admin role
+│   │   ├── errorHandler.js          # centralized errors
+│   │   └── validateRequest.js        # joi validation
+
+│   ├── services/                    # Business logic (clean)
+│   │   ├── auth.service.js
+│   │   ├── movie.service.js
+│   │   ├── showtime.service.js
+│   │   ├── booking.service.js
+│   │   └── payment.service.js
+
+│   ├── validators/                  # JOI validation schemas
+│   │   ├── authValidator.js
+│   │   ├── movieValidator.js
+│   │   ├── showtimeValidator.js
+│   │   └── bookingValidator.js
+
+│   ├── utils/
+│   │   ├── sendEmail.js             # email tickets
+│   │   ├── generateSeats.js         # auto-generate seat layout
+│   │   └── catchAsync.js            # clean async handler
+
+│   └── docs/
+│       └── api-docs.md              # API documentation
+
+└── uploads/
+    └── movies/                      # poster images (if not using cloudinary)
+
+
+
+
+
+linuka@example.com
