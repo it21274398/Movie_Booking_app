@@ -16,7 +16,7 @@ router.post("/", auth, createBooking);
 router.get("/me", auth, getMyBookings);
 
 // Admin stats route  ✅ NEW
-router.get("/stats", auth, admin, getBookingStats);
+router.get("/stats", auth,  getBookingStats);
 
 // Admin view all bookings
 router.get("/",  getAllBookings);

@@ -51,12 +51,17 @@ const AdminDashboard = () => {
   });
 
   const [loading, setLoading] = useState(true);
+  const token = localStorage.getItem("admin_token");
 
   const fetchStats = async () => {
     try {
       const moviesRes = await axios.get("/movies");
       const showtimesRes = await axios.get("/showtimes/");
-      const bookingRes = await axios.get("/bookings/stats");
+      const bookingRes = await axios.get("/bookings/stats", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       const bookingStats = bookingRes.data?.data || {
         todayBookings: 0,
@@ -84,9 +89,9 @@ const AdminDashboard = () => {
     <AdminLayout>
 
 
-      
-       <AdminMovies />
-      
+
+      <AdminMovies />
+
     </AdminLayout>
   );
 };

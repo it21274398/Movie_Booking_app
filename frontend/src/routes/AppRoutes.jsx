@@ -12,6 +12,7 @@ import AdminShowtimes from "../pages/admin/AdminShowtimes";
 import AddShowtime from "../pages/admin/AddShowtime";
 import EditShowtime from "../pages/admin/EditShowtime";
 import AdminLogin from "../pages/admin/AdminLogin";
+import AdminUsers from "../pages/admin/AdminUsers";
 
 import Login from "../pages/UserLogin";
 import Register from "../pages/UserRegister";
@@ -101,6 +102,17 @@ const AppRoutes = () => {
           <AdminProtectedRoute>
             <AdminLayout>
               <AdminDashboard />
+            </AdminLayout>
+          </AdminProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/admin/users"
+        element={
+          <AdminProtectedRoute>
+            <AdminLayout>
+              <AdminUsers />
             </AdminLayout>
           </AdminProtectedRoute>
         }

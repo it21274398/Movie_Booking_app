@@ -47,15 +47,21 @@ const AdminMovies = () => {
   const [loading, setLoading] = useState(true);
   const [deleteDialog, setDeleteDialog] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
-  const [stats, setStats] = useState({ total: 0, active: 0, upcoming: 0 });
+  const [stats, setStats] = useState({ total: 0, active:4 , bookings: 0 });
   const navigate = useNavigate();
   const theme = useTheme();
 
   const fetchMovies = async () => {
     try {
-      const res = await axios.get("/movies");
-      setMovies(res.data || []);
-      calculateStats(res.data || []);
+      const moviesRes = await axios.get("/movies");
+      const bookingsRes = await axios.get("/bookings");
+
+      const moviesList = moviesRes.data || [];
+      const bookingsList = bookingsRes.data.data || [];  // FIXED HERE
+
+      setMovies(moviesList);
+      calculateStats(moviesList, bookingsList);
+
     } catch (error) {
       console.log("Error fetching movies:", error);
     } finally {
@@ -63,12 +69,16 @@ const AdminMovies = () => {
     }
   };
 
-  const calculateStats = (moviesList) => {
+
+  const calculateStats = (moviesList, bookingsList) => {
     const total = moviesList.length;
-    const active = moviesList.filter(movie => movie.status === 'active').length;
-    const upcoming = moviesList.filter(movie => movie.status === 'upcoming').length;
-    setStats({ total, active, upcoming });
+    const active = moviesList.filter(movie => movie.status === "active").length;
+    const bookings = bookingsList.length;
+
+    setStats({ total, active, bookings });
   };
+
+
 
   useEffect(() => {
     fetchMovies();
@@ -109,7 +119,7 @@ const AdminMovies = () => {
     >
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <Box>
-          <Typography variant="h4" fontWeight={700} sx={{ 
+          <Typography variant="h4" fontWeight={700} sx={{
             background: `linear-gradient(135deg, ${color}, ${alpha(color, 0.8)})`,
             backgroundClip: 'text',
             WebkitBackgroundClip: 'text',
@@ -139,15 +149,15 @@ const AdminMovies = () => {
 
   if (loading) {
     return (
-      <Box sx={{ 
-        display: "flex", 
-        justifyContent: "center", 
+      <Box sx={{
+        display: "flex",
+        justifyContent: "center",
         alignItems: "center",
         minHeight: '60vh',
         flexDirection: 'column',
         gap: 3
       }}>
-        <CircularProgress 
+        <CircularProgress
           size={60}
           sx={{
             color: '#ffd700',
@@ -170,7 +180,7 @@ const AdminMovies = () => {
   }
 
   return (
-<Box sx={{ py: 4, width: '100%', maxWidth: 'none', margin: 0, px: 0 }}>
+    <Box sx={{ py: 4, width: '100%', maxWidth: 'none', margin: 0, px: 0 }}>
 
       <AdminLayout>
         {/* Header Section */}
@@ -200,18 +210,19 @@ const AdminMovies = () => {
             <Grid item xs={12} sm={6} md={3}>
               <StatCard
                 title="Active Screenings"
-                value={stats.active}
+                value={4}
                 icon={<Visibility sx={{ color: '#00ff88', fontSize: 32 }} />}
                 color="#00ff88"
               />
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
               <StatCard
-                title="Upcoming Releases"
-                value={stats.upcoming}
-                icon={<Schedule sx={{ color: '#4dabf5', fontSize: 32 }} />}
+                title="Total Bookings"
+                value={stats.bookings}
+                icon={<Group sx={{ color: '#4dabf5', fontSize: 32 }} />}
                 color="#4dabf5"
               />
+
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
               <StatCard
@@ -240,7 +251,7 @@ const AdminMovies = () => {
                 '&:hover': {
                   background: 'linear-gradient(135deg, #000000ff 0%, #000000ff 100%)',
                   color: '#ffd700',
-                   border: '1px solid rgba(255, 217, 0, 0.81)',
+                  border: '1px solid rgba(255, 217, 0, 0.81)',
                   boxShadow: '0 12px 48px rgba(255, 217, 0, 0.24)',
                   transform: 'translateY(-2px)'
                 },
@@ -468,8 +479,8 @@ const AdminMovies = () => {
             }
           }}
         >
-          <DialogTitle sx={{ 
-            color: '#ff6b6b', 
+          <DialogTitle sx={{
+            color: '#ff6b6b',
             fontWeight: 700,
             textAlign: 'center',
             background: 'linear-gradient(135deg, rgba(255, 107, 107, 0.1), transparent)',
@@ -515,7 +526,7 @@ const AdminMovies = () => {
                 px: 4,
                 '&:hover': {
                   background: 'linear-gradient(135deg, #090909ff, #2e2e2eff)',
-                   color: 'red',
+                  color: 'red',
                   transform: 'translateY(-2px)'
                 }
               }}

@@ -20,7 +20,7 @@ const AdminTopbar = () => {
     <AppBar
       position="fixed"
       sx={{
-        width: "100%",    
+        width: "100%",
         left: 0,
         top: 0,
         height: 110,
@@ -50,7 +50,9 @@ const AdminTopbar = () => {
         {/* Right side */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
           <IconButton color="inherit">
-            <AccountCircleIcon />
+            <Button onClick={() => navigate("/admin/users")}      >
+              <AccountCircleIcon />
+            </Button>
           </IconButton>
 
           <Button

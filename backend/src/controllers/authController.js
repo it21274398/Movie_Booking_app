@@ -44,6 +44,8 @@ export const login = async (req, res, next) => {
   }
 };
 
+//===========================================================================================================================
+
 // =============================
 // ADMIN REGISTER
 // =============================
@@ -132,6 +134,25 @@ export const loginAdmin = async (req, res, next) => {
     });
   } catch (error) {
     next(error);
+  }
+};
+
+// =============================
+// GET TOTAL USERS
+// =============================
+export const getTotalUsers = async (req, res, next) => {
+  try {
+    const users = await User.find().sort({ createdAt: -1 }); // get full list
+    const count = users.length;
+
+    return res.json({
+      success: true,
+      totalUsers: count,
+      data: users,    // 👈 THIS IS WHAT FRONTEND NEEDS
+    });
+
+  } catch (err) {
+    next(err);
   }
 };
 
