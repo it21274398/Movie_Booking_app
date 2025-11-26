@@ -105,6 +105,7 @@ const EditShowtime = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return;
     setError("");
     setSuccess("");
     setSubmitting(true);
@@ -122,6 +123,7 @@ const EditShowtime = () => {
         navigate(`/admin/showtimes/${movieId}`);
       }, 1500);
     } catch (err) {
+      setLoading(false); 
       console.log(err);
       setError("Failed to update showtime. Please check all fields.");
     } finally {

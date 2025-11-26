@@ -50,6 +50,7 @@ const AdminRegister = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return;
     setError("");
     setSuccess("");
     setLoading(true);
@@ -66,6 +67,7 @@ const AdminRegister = () => {
       }, 1500);
 
     } catch (err) {
+      setLoading(false); 
       setError(err.response?.data?.message || "Registration failed. Please try again.");
     } finally {
       setLoading(false);
@@ -92,6 +94,7 @@ const AdminRegister = () => {
     >
       <Box
         sx={{
+          
           width: 50,
           height: 50,
           borderRadius: 2,
@@ -117,6 +120,7 @@ const AdminRegister = () => {
   return (
     <Box
       sx={{
+        pb:5,
         minHeight: '100vh',
         background: 'linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #0c0c0c 100%)',
         position: 'relative',
@@ -168,7 +172,7 @@ const AdminRegister = () => {
       />
 
       <Container maxWidth="lg">
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 6 }}>
           <Grid container spacing={6} alignItems="center" justifyContent="center">
             {/* Left Side - Admin Features */}
 

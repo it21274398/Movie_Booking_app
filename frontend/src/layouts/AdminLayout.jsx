@@ -5,17 +5,23 @@ import AdminTopbar from "../pages/admin/AdminTopbar";
 
 const AdminLayout = ({ children }) => {
   return (
-    <Box sx={{ display: "flex", width: "100%" }}>
-
+    <Box sx={{
+      background: `
+          linear-gradient(135deg, #1e1c1cff 0%, #1a1a1a 50%, #131212ff 100%),
+          radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%)
+        `,
+      display: "flex", width: "100%",
+    }}>
 
       {/* Main Content */}
       <Box
         component="main"
         sx={{
-          flexGrow: 1,
-          width: "100%",
-          px: 0,   // remove left/right padding
-          ml: 0,   // remove default margin-left
+          ml: "40px",
+
+          width: "95%",
+
         }}
       >
         {/* Top Navbar */}

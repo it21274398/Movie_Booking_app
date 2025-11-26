@@ -78,6 +78,7 @@ const AddShowtime = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
+    if (loading) return;
     e.preventDefault();
     setError("");
     setSuccess("");
@@ -97,6 +98,7 @@ const AddShowtime = () => {
         navigate(`/admin/showtimes/${movieId}`);
       }, 1500);
     } catch (err) {
+      setLoading(false); 
       setError("Failed to add showtime. Please check all fields.");
       console.log(err);
     } finally {
@@ -171,7 +173,7 @@ const AddShowtime = () => {
   return (
     <Box sx={{ py: 4, px: { xs: 2, md: 4 }, maxWidth: 1200, margin: 'auto' }}>
       {/* Header Section */}
-      <Box sx={{ mb: 6, textAlign: 'center' }}>
+      <Box sx={{ mb: 6, textAlign: 'center' ,mt:10}}>
         <Typography variant="h2" fontWeight={800} sx={{
           background: 'linear-gradient(135deg, #ffd700 0%, #ffed4e 100%)',
           backgroundClip: 'text',
@@ -181,7 +183,7 @@ const AddShowtime = () => {
         }}>
           Add New Showtime
         </Typography>
-        <Typography variant="h6" color="text.secondary" sx={{ mb: 4 }}>
+        <Typography variant="h6" color="white" sx={{ mb: 4 }}>
           Schedule a cinematic experience for your audience
         </Typography>
       </Box>
@@ -257,7 +259,7 @@ const AddShowtime = () => {
                         <Typography variant="h5" fontWeight={700} color="white" gutterBottom>
                           {movie?.title}
                         </Typography>
-                        <Typography variant="body1" color="text.secondary" gutterBottom>
+                        <Typography variant="body1" color="white" gutterBottom>
                           {movie?.genre?.join(' • ')}
                         </Typography>
                         <Typography variant="body2" color="#ffd700" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -312,6 +314,9 @@ const AddShowtime = () => {
                             borderColor: '#ffd700',
                           },
                         },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
                         '& .MuiInputLabel-root': {
                           color: 'rgba(255, 255, 255, 0.7)',
                         },
@@ -324,13 +329,26 @@ const AddShowtime = () => {
 
                   <Grid item xs={12} sm={6}>
                     <FormControl fullWidth sx={{
-                      '& .MuiOutlinedInput-root': {
-                        background: 'rgba(255, 255, 255, 0.05)',
-                        borderRadius: 3,
-                        '&:hover fieldset': { borderColor: '#ffd700' },
-                        '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                      }
-                    }}>
+                        '& .MuiOutlinedInput-root': {
+                          background: 'rgba(255, 255, 255, 0.05)',
+                          borderRadius: 3,
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
+                      }}>
                       <InputLabel sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>Show Time</InputLabel>
                       <Select
                         name="showTime"
@@ -362,13 +380,26 @@ const AddShowtime = () => {
 
                   <Grid item xs={12} sm={6}>
                     <FormControl fullWidth sx={{
-                      '& .MuiOutlinedInput-root': {
-                        background: 'rgba(255, 255, 255, 0.05)',
-                        borderRadius: 3,
-                        '&:hover fieldset': { borderColor: '#ffd700' },
-                        '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                      }
-                    }}>
+                        '& .MuiOutlinedInput-root': {
+                          background: 'rgba(255, 255, 255, 0.05)',
+                          borderRadius: 3,
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
+                      }}>
                       <InputLabel sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>Cinema Hall</InputLabel>
                       <Select
                         name="cinemaHall"
@@ -421,9 +452,22 @@ const AddShowtime = () => {
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>
@@ -558,7 +602,7 @@ const AddShowtime = () => {
                     <Typography variant="h6" fontWeight={600} color="white" noWrap>
                       {movie?.title}
                     </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="white">
                       {movie?.genre?.slice(0, 2).join(', ')}
                     </Typography>
                   </Box>
@@ -653,7 +697,7 @@ const AddShowtime = () => {
                   <ConfirmationNumber />
                   Pro Tip
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography variant="body2" color="white">
                   Prime time shows (16:00 - 22:00) typically have higher occupancy rates. Consider premium pricing for these slots.
                 </Typography>
               </Box>

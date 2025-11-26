@@ -42,6 +42,7 @@ const UserLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return;
     setError("");
     setLoading(true);
 
@@ -55,6 +56,8 @@ const UserLogin = () => {
       }, 1500);
 
     } catch (err) {
+      setLoading(false); 
+      setLoading(false); 
       setError("Invalid email or password. Please try again.");
     } finally {
       setLoading(false);

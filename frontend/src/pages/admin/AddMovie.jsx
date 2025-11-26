@@ -51,7 +51,7 @@ const AddMovie = () => {
     releaseDate: "",
     cast: "",
     trailerUrl: "",
-    
+
   });
 
   const [posterPreview, setPosterPreview] = useState("");
@@ -67,6 +67,7 @@ const AddMovie = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return;
     setError("");
     setSuccess("");
 
@@ -81,7 +82,7 @@ const AddMovie = () => {
         releaseDate: form.releaseDate,
         cast: form.cast.split(",").map((c) => c.trim()),
         trailerUrl: form.trailerUrl,
-     
+
       });
 
       setSuccess("🎬 Movie added successfully!");
@@ -121,9 +122,9 @@ const AddMovie = () => {
     <Chip
       label={status === 'now-showing' ? 'Now Showing' : 'Coming Soon'}
       sx={{
-        background: status === 'now-showing' 
-          ? 'linear-gradient(135deg, #00ff88, #00cc6a)'
-          : 'linear-gradient(135deg, #4dabf5, #339af0)',
+        background: status === 'now-showing'
+          ? 'linear-gradient(135deg, #4e9c7864, #00502994)'
+          : 'linear-gradient(135deg, #688aa493, #00407494)',
         color: 'white',
         fontWeight: 700,
         fontSize: '0.75rem',
@@ -141,14 +142,12 @@ const AddMovie = () => {
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
           color: 'transparent',
-          mb: 2
+          mb: 2,
+          mt:10,
         }}>
           Add New Movie
         </Typography>
-        <Typography variant="h6" color="text.secondary" sx={{ mb: 4 }}>
-          Create a cinematic masterpiece for your audience
-        </Typography>
-
+     
         {/* Progress Steps */}
         <Box sx={{ display: 'flex', justifyContent: 'center', mb: 6 }}>
           {steps.map((step, index) => (
@@ -161,11 +160,11 @@ const AddMovie = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  background: index === activeStep 
+                  background: index === activeStep
                     ? 'linear-gradient(135deg, #ffd700, #ffed4e)'
                     : index < activeStep
-                    ? 'linear-gradient(135deg, #00ff88, #00cc6a)'
-                    : 'rgba(255, 255, 255, 0.1)',
+                      ? 'linear-gradient(135deg, #00ff88, #00cc6a)'
+                      : 'rgba(255, 255, 255, 0.1)',
                   color: index <= activeStep ? '#000' : 'rgba(255, 255, 255, 0.5)',
                   fontWeight: 700,
                   border: index === activeStep ? '2px solid #ffd700' : 'none'
@@ -185,9 +184,9 @@ const AddMovie = () => {
                 {step}
               </Typography>
               {index < steps.length - 1 && (
-                <Box sx={{ 
-                  width: 40, 
-                  height: 2, 
+                <Box sx={{
+                  width: 40,
+                  height: 2,
                   background: 'rgba(255, 215, 0, 0.3)',
                   mr: 2
                 }} />
@@ -212,9 +211,9 @@ const AddMovie = () => {
               }}
             >
               {error && (
-                <Alert 
-                  severity="error" 
-                  sx={{ 
+                <Alert
+                  severity="error"
+                  sx={{
                     mb: 3,
                     background: 'rgba(255, 107, 107, 0.1)',
                     color: '#ff6b6b',
@@ -226,9 +225,9 @@ const AddMovie = () => {
                 </Alert>
               )}
               {success && (
-                <Alert 
-                  severity="success" 
-                  sx={{ 
+                <Alert
+                  severity="success"
+                  sx={{
                     mb: 3,
                     background: 'rgba(0, 255, 136, 0.1)',
                     color: '#00ff88',
@@ -244,7 +243,7 @@ const AddMovie = () => {
                 <Grid container spacing={3}>
                   {/* Basic Information */}
                   <Grid item xs={12}>
-                    <Typography variant="h5" fontWeight={700} sx={{ 
+                    <Typography variant="h5" fontWeight={700} sx={{
                       color: '#ffd700',
                       mb: 3,
                       display: 'flex',
@@ -281,6 +280,9 @@ const AddMovie = () => {
                             borderColor: '#ffd700',
                           },
                         },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
                         '& .MuiInputLabel-root': {
                           color: 'rgba(255, 255, 255, 0.7)',
                         },
@@ -303,9 +305,22 @@ const AddMovie = () => {
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>
@@ -330,9 +345,22 @@ const AddMovie = () => {
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>
@@ -340,7 +368,7 @@ const AddMovie = () => {
                   {/* Media Section */}
                   <Grid item xs={12}>
                     <Divider sx={{ my: 2, borderColor: 'rgba(255, 215, 0, 0.2)' }} />
-                    <Typography variant="h5" fontWeight={700} sx={{ 
+                    <Typography variant="h5" fontWeight={700} sx={{
                       color: '#ffd700',
                       mb: 3,
                       display: 'flex',
@@ -404,9 +432,22 @@ const AddMovie = () => {
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>
@@ -414,7 +455,7 @@ const AddMovie = () => {
                   {/* Details Section */}
                   <Grid item xs={12}>
                     <Divider sx={{ my: 2, borderColor: 'rgba(255, 215, 0, 0.2)' }} />
-                    <Typography variant="h5" fontWeight={700} sx={{ 
+                    <Typography variant="h5" fontWeight={700} sx={{
                       color: '#ffd700',
                       mb: 3,
                       display: 'flex',
@@ -437,9 +478,22 @@ const AddMovie = () => {
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>
@@ -460,13 +514,26 @@ const AddMovie = () => {
                           </InputAdornment>
                         ),
                       }}
-                      sx={{
+                     sx={{
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>
@@ -485,9 +552,22 @@ const AddMovie = () => {
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>
@@ -495,7 +575,7 @@ const AddMovie = () => {
                   <Grid item xs={12} sm={6}>
                     <FormControl fullWidth sx={{
                       '& .MuiOutlinedInput-root': {
-                        background: 'rgba(255, 255, 255, 0.05)',
+                        background: 'rgba(44, 42, 42, 0.48)',
                         borderRadius: 3,
                         '&:hover fieldset': { borderColor: '#ffd700' },
                         '&.Mui-focused fieldset': { borderColor: '#ffd700' },
@@ -537,9 +617,22 @@ const AddMovie = () => {
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>
@@ -565,9 +658,22 @@ const AddMovie = () => {
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>
@@ -620,9 +726,9 @@ const AddMovie = () => {
                 top: 100
               }}
             >
-              <Typography variant="h5" fontWeight={700} sx={{ 
+              <Typography variant="h5" fontWeight={700} sx={{
                 color: '#ffd700',
-          
+
                 mb: 3,
                 textAlign: 'center'
               }}>

@@ -98,13 +98,13 @@ const Checkout = () => {
         minHeight: "100vh",
         background: `
           linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%),
-          radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%)
+          radial-gradient(circle at 20% 80%, rgba(0, 0, 0, 0.87) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.6) 0%, transparent 50%)
         `,
         position: "relative",
         overflow: "hidden",
         py: 4,
-       // mt:-10,
+       mt:-10,
       }}
     >
       {/* Background Pattern */}

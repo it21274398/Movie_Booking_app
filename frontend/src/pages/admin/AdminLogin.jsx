@@ -59,6 +59,7 @@ const AdminLogin = () => {
       }, 1500);
       
     } catch (err) {
+      setLoading(false); 
       setError("Invalid admin credentials. Please try again.");
     } finally {
       setLoading(false);
@@ -111,6 +112,7 @@ const AdminLogin = () => {
     <Box
       sx={{
         minHeight: '100vh',
+        pb:5,
         background: 'linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #0c0c0c 100%)',
         position: 'relative',
         overflow: 'hidden',
@@ -161,7 +163,7 @@ const AdminLogin = () => {
       />
 
       <Container maxWidth="lg">
-        <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center',mt: 8  }}>
           <Grid container spacing={6} alignItems="center" justifyContent="center">
            
             {/* Right Side - Login Form */}

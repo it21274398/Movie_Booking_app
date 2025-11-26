@@ -66,10 +66,13 @@ const Navbar = () => {
       position="static"
       elevation={0}
       sx={{
-        mt: -4,
-        ml: -5,
-        width: "104.4%",
-        background: "linear-gradient(135deg, #24243e, #0f0c29)",
+        mt: 5,
+
+        background: `
+          linear-gradient(135deg, #1d1d1dff 0%, #1a1a1a 50%, #13121295 100%),
+          radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%)
+        `,
         backdropFilter: "blur(20px)",
         borderBottom: "1px solid rgba(255, 215, 0, 0.3)",
         position: "relative",

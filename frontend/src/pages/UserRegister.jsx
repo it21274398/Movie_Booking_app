@@ -48,6 +48,7 @@ const UserRegister = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return;
     setError("");
     setLoading(true);
 
@@ -60,6 +61,7 @@ const UserRegister = () => {
         navigate("/user/login");
       }, 1500);
     } catch (err) {
+      setLoading(false); 
       setError(
         err.response?.data?.message || "Registration failed. Try again."
       );
@@ -92,7 +94,7 @@ const UserRegister = () => {
       }}
     >
       <Container maxWidth="md">
-        <Grid container spacing={6} justifyContent="center">
+        <Grid container spacing={6} justifyContent="center" sx={{ my: 2 }}>
           <Grid item xs={12} md={8}>
             <Fade in timeout={800}>
               <Paper
@@ -120,8 +122,8 @@ const UserRegister = () => {
                 <Box sx={{ textAlign: "center", mb: 4 }}>
                   <Box
                     sx={{
-                      width: 80,
-                      height: 80,
+                      width: 40,
+                      height: 40,
                       borderRadius: 3,
                       background:
                         "linear-gradient(135deg, #ffd700 0%, #ffed4e 100%)",

@@ -127,6 +127,7 @@ const EditMovie = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (loading) return;
     setError("");
     setSuccess("");
 
@@ -147,7 +148,7 @@ const EditMovie = () => {
       setSuccess("🎬 Movie updated successfully!");
       setTimeout(() => navigate("/admin/movies"), 1500);
     } catch (err) {
-      console.log("Update error:", err);
+      setLoading(false); 
       setError("Failed to update movie. Please check all fields.");
     }
   };
@@ -207,7 +208,9 @@ const EditMovie = () => {
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
           color: 'transparent',
-          mb: 2
+           mt: 8,
+            mb: 2
+          
         }}>
           Edit Movie
         </Typography>

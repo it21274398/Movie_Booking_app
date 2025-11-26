@@ -198,10 +198,10 @@ const AdminShowtimes = () => {
   }
 
   return (
-    <Box sx={{ py: 4, px: { xs: 2, md: 4 } }}>
+    <Box sx={{ py: 4, px: { xs: 2, md: 4 }, }}>
       {/* Header Section */}
       <Box sx={{ mb: 6 }}>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 3, mb: 4 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 3, mb: 4,mt:12 }}>
           {movie?.posterUrl && (
             <Avatar
               src={movie.posterUrl}
