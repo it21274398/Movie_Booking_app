@@ -214,9 +214,7 @@ const EditMovie = () => {
         }}>
           Edit Movie
         </Typography>
-        <Typography variant="h6" color="text.secondary" sx={{ mb: 4 }}>
-          Refine your cinematic masterpiece
-        </Typography>
+        
       </Box>
 
       <Grid container spacing={4}>
@@ -292,7 +290,7 @@ const EditMovie = () => {
                           </InputAdornment>
                         ),
                       }}
-                      sx={{
+                     sx={{
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
@@ -302,6 +300,9 @@ const EditMovie = () => {
                           '&.Mui-focused fieldset': {
                             borderColor: '#ffd700',
                           },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
                         },
                         '& .MuiInputLabel-root': {
                           color: 'rgba(255, 255, 255, 0.7)',
@@ -324,9 +325,22 @@ const EditMovie = () => {
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>
@@ -351,9 +365,22 @@ const EditMovie = () => {
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>
@@ -425,9 +452,22 @@ const EditMovie = () => {
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>
@@ -458,9 +498,22 @@ const EditMovie = () => {
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>
@@ -485,9 +538,22 @@ const EditMovie = () => {
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>
@@ -536,9 +602,22 @@ const EditMovie = () => {
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>
@@ -564,9 +643,22 @@ const EditMovie = () => {
                         '& .MuiOutlinedInput-root': {
                           background: 'rgba(255, 255, 255, 0.05)',
                           borderRadius: 3,
-                          '&:hover fieldset': { borderColor: '#ffd700' },
-                          '&.Mui-focused fieldset': { borderColor: '#ffd700' },
-                        }
+                          '&:hover fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                          '&.Mui-focused fieldset': {
+                            borderColor: '#ffd700',
+                          },
+                        },
+                        '& .MuiOutlinedInput-input': {
+                          color: 'white',
+                        },
+                        '& .MuiInputLabel-root': {
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '& .MuiInputLabel-root.Mui-focused': {
+                          color: '#ffd700',
+                        },
                       }}
                     />
                   </Grid>

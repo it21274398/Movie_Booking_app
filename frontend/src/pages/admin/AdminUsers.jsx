@@ -218,9 +218,7 @@ const AdminUsers = () => {
           }}>
             User Management
           </Typography>
-          <Typography variant="h6" color="#ffd700" sx={{ mb: 4 }}>
-            Manage all user accounts and permissions
-          </Typography>
+     
 
           {/* Statistics Grid */}
           <Grid container spacing={3} sx={{ mb: 6 }}>

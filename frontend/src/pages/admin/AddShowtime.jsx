@@ -183,9 +183,7 @@ const AddShowtime = () => {
         }}>
           Add New Showtime
         </Typography>
-        <Typography variant="h6" color="white" sx={{ mb: 4 }}>
-          Schedule a cinematic experience for your audience
-        </Typography>
+      
       </Box>
 
       <Grid container spacing={4}>

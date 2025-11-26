@@ -227,7 +227,7 @@ const AdminShowtimes = () => {
             <Typography variant="h5" color="white" fontWeight={600}>
               {movie?.title}
             </Typography>
-            <Typography variant="body1" color="text.secondary">
+            <Typography variant="body1" color="white">
               {movie?.genre?.join(' • ')}
             </Typography>
           </Box>
@@ -527,7 +527,7 @@ const AdminShowtimes = () => {
         }}
       >
         <DialogTitle sx={{ 
-          color: '#ff6b6b', 
+          color: '#ff0000ff', 
           fontWeight: 700,
           textAlign: 'center',
           background: 'linear-gradient(135deg, rgba(255, 107, 107, 0.1), transparent)',

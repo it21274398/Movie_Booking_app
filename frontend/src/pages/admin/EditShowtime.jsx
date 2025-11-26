@@ -207,13 +207,12 @@ const EditShowtime = () => {
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
           color: 'transparent',
-          mb: 2
+          mb: 2,
+          mt:10
         }}>
           Edit Showtime
         </Typography>
-        <Typography variant="h6" color="text.secondary" sx={{ mb: 4 }}>
-          Update screening details and pricing
-        </Typography>
+        
       </Box>
 
       <Grid container spacing={4}>

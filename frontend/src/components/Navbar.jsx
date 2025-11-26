@@ -83,7 +83,7 @@ const Navbar = () => {
           left: 0,
           right: 0,
           height: "2px",
-          background: "linear-gradient(90deg, transparent 0%, #ffd700 50%, transparent 100%)",
+          background: "linear-gradient(90deg, transparent 0%, #ffd900 50%, transparent 100%)",
         },
       }}
     >
@@ -185,7 +185,7 @@ const Navbar = () => {
           <Box sx={{
             display: { xs: "none", md: "flex" },
             alignItems: "center",
-            gap: 1
+            gap:3
           }}>
             <Button
               startIcon={<Home />}
@@ -272,8 +272,7 @@ const Navbar = () => {
                   background: "rgba(0, 0, 0, 1)",
                   color: "#ff0000ff",
                   fontWeight: 600,
-
-
+                  mr:-5,
                   borderRadius: 3,
                   border: "2px solid transparent",
                   backgroundClip: "padding-box",

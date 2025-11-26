@@ -191,7 +191,7 @@ const AdminMovies = () => {
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
               color: 'transparent',
-              mt: -5,
+            
               mb: 2
             }}>
               Movie Management
@@ -481,7 +481,7 @@ const AdminMovies = () => {
             }}
           >
             <DialogTitle sx={{
-              color: '#ff6b6b',
+              color: '#ff0000ff',
               fontWeight: 700,
               textAlign: 'center',
               background: 'linear-gradient(135deg, rgba(255, 107, 107, 0.1), transparent)',

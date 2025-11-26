@@ -59,7 +59,7 @@ const AddMovie = () => {
   const [success, setSuccess] = useState("");
   const [uploading, setUploading] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
-
+  const [loading, setLoading] = useState(false);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
