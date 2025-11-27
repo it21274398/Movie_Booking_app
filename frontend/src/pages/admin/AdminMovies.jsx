@@ -153,13 +153,20 @@ const AdminMovies = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: '60vh',
+        minHeight: '90vh',
         flexDirection: 'column',
-        gap: 3
+        gap: 3,
+        height: '100%',
+        background: `
+          linear-gradient(135deg, #1e1c1cff 0%, #1a1a1a 50%, #131212ff 100%),
+          radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%)
+        `,
       }}>
         <CircularProgress
           size={60}
           sx={{
+
             color: '#ffd700',
             '& .MuiCircularProgress-circle': {
               strokeLinecap: 'round'
@@ -167,11 +174,13 @@ const AdminMovies = () => {
           }}
         />
         <Typography variant="h6" sx={{
+
           background: 'linear-gradient(135deg, #ffd700, #ffed4e)',
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
           color: 'transparent',
-          fontWeight: 600
+          fontWeight: 600,
+          mb: 20,
         }}>
           Loading Movies...
         </Typography>
@@ -191,7 +200,7 @@ const AdminMovies = () => {
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
               color: 'transparent',
-            
+
               mb: 2
             }}>
               Movie Management

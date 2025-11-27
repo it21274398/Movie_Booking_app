@@ -68,7 +68,7 @@ const Showtimes = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          minHeight: "80vh",
+          minHeight: "90vh",
           background: "linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%)"
         }}
       >
@@ -80,7 +80,7 @@ const Showtimes = () => {
               mb: 2
             }}
           />
-          <Typography variant="h6" sx={{ color: "#ffd700" }}>
+          <Typography variant="h6" sx={{ color: "#ffd700" ,mb: 20}}>
             Loading Showtimes...
           </Typography>
         </Box>

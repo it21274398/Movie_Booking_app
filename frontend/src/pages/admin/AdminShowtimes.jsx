@@ -171,7 +171,7 @@ const AdminShowtimes = () => {
         display: "flex", 
         justifyContent: "center", 
         alignItems: "center",
-        minHeight: '60vh',
+        minHeight: '90vh',
         flexDirection: 'column',
         gap: 3
       }}>
@@ -189,7 +189,8 @@ const AdminShowtimes = () => {
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
           color: 'transparent',
-          fontWeight: 600
+          fontWeight: 600,
+           mb: 2
         }}>
           Loading Showtimes...
         </Typography>

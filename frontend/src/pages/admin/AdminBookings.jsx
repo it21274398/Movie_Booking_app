@@ -174,7 +174,7 @@ const AdminBookings = () => {
     return (
       <Box
         sx={{
-          minHeight: "60vh",
+          minHeight: "100vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -196,7 +196,8 @@ const AdminBookings = () => {
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
           color: 'transparent',
-          fontWeight: 600
+          fontWeight: 600,
+           mb: 2
         }}>
           Loading Bookings...
         </Typography>

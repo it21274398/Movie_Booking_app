@@ -171,7 +171,7 @@ const AddShowtime = () => {
   }
 
   return (
-    <Box sx={{ py: 4, px: { xs: 2, md: 4 }, maxWidth: 1200, margin: 'auto' }}>
+    <Box sx={{ py: 4, px: { xs: 2, md: 4 }, maxWidth: 1200, margin: 'auto',height:'100%' }}>
       {/* Header Section */}
       <Box sx={{ mb: 6, textAlign: 'center' ,mt:10}}>
         <Typography variant="h2" fontWeight={800} sx={{

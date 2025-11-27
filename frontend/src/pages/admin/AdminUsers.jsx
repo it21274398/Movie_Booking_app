@@ -174,7 +174,7 @@ const AdminUsers = () => {
     return (
       <Box
         sx={{
-          minHeight: "60vh",
+          minHeight: "100vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -196,7 +196,8 @@ const AdminUsers = () => {
           backgroundClip: 'text',
           WebkitBackgroundClip: 'text',
           color: 'transparent',
-          fontWeight: 600
+          fontWeight: 600,
+           mb: 2
         }}>
           Loading Users...
         </Typography>
