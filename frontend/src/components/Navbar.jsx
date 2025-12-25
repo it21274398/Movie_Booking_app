@@ -113,6 +113,7 @@ const Navbar = () => {
                 borderRadius: 3,
                 p: 1,
                 mr: 2,
+                ml: 3,
                 boxShadow: "0 4px 15px rgba(255, 215, 0, 0.3)",
               }}
             >

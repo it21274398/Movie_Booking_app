@@ -125,7 +125,7 @@ const AdminTopbar = () => {
         {/* Left side - Logo & Brand */}
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
           {/* Logo */}
-          
+
 
         </Box>
 
@@ -133,12 +133,23 @@ const AdminTopbar = () => {
         <Box sx={{
           display: { xs: 'none', lg: 'flex' },
           alignItems: 'center',
-          gap: 1,
-          ml:-55,
+          gap: 2,
+          ml: -50,
           position: 'absolute',
           left: '50%',
           transform: 'translateX(-50%)'
         }}>
+          <Box
+            sx={{
+              background: "linear-gradient(45deg, #ffd700, #ffed4e)",
+              borderRadius: 3,
+              p: 1,
+              mr: 2,
+              boxShadow: "0 4px 15px rgba(255, 215, 0, 0.3)",
+            }}
+          >
+            <Movie sx={{ fontSize: 32, color: "#000" }} />
+          </Box>
           <NavItem
             path="/admin"
             label="Dashboard"
